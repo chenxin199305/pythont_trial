@@ -1,5 +1,7 @@
 # pythont_trial
 
+本仓库代码用于测试一些 python3.13 free-threading 的特性。
+
 ## 环境安装
 
 1. 安装 Miniconda
