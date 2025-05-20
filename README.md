@@ -19,3 +19,9 @@
    ```bash
    conda activate pythont
    ```
+
+4. 安装 JIT 特性
+
+    ```bash
+    conda install python-jit
+    ```
