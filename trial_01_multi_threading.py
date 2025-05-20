@@ -2,21 +2,21 @@ import time
 import threading
 
 if __name__ == "__main__":
-    def print_numbers():
-        for i in range(1, 6):
-            print(i)
-            time.sleep(1)
+    def thread1_function():
+        # create a CPU high load task
+        while True:
+            print("Thread 1")
 
 
-    def print_letters():
-        for letter in 'abcde':
-            print(letter)
-            time.sleep(1)
+    def thread2_function():
+        # create a CPU high load task
+        while True:
+            print("Thread 2")
 
 
     # Create threads
-    thread1 = threading.Thread(target=print_numbers)
-    thread2 = threading.Thread(target=print_letters)
+    thread1 = threading.Thread(target=thread1_function)
+    thread2 = threading.Thread(target=thread2_function)
 
     # Start threads
     thread1.start()
