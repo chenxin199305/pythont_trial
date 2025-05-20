@@ -11,7 +11,7 @@
 2. 安装 conda 环境
 
    ```bash
-   conda create -n pythont python=3.13 free-threading -c conda-forge
+   conda create -n pythont python=3.13 python-freethreading -c conda-forge
    ```
 
 3. 激活 conda 环境
