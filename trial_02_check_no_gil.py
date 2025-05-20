@@ -1,12 +1,20 @@
+import os
 import time
 import threading
 import math
+
+
+def bind_to_cpu(core_id):
+    """将当前线程绑定到指定CPU核心"""
+    os.sched_setaffinity(0, {core_id})  # 0表示当前线程
 
 
 def cpu_intensive_task(duration_sec: float, thread_id: int):
     """
     CPU密集型任务，计算平方根多次
     """
+    bind_to_cpu(core_id=thread_id * 2)  # 将线程绑定到偶数核心
+
     start_time = time.time()
     iterations = 0
 
@@ -35,7 +43,7 @@ if __name__ == "__main__":
 
     # 创建并启动线程
     threads = []
-    for i in range(1, 5):  # 四个线程
+    for i in range(0, 12):  # 十二个线程
         t = threading.Thread(target=cpu_intensive_task, args=(test_duration, i))
         threads.append(t)
         t.start()
